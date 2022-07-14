@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ClassRoom Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body style="background-size: cover;background-repeat: no-repeat;background-image:url(https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xhc3Nyb29tfGVufDB8fDB8fA%3D%3D&w=1000&q=80)">
+<nav class="navbar " style="background: #712cf9;">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#" style="color: white;">ClassRoom Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/students}">ClassRoom Management</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+	<div class = "container" >
+		<div class = "row" >
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card" style="background-image:url(https://miro.medium.com/max/1400/1*zc8HV976BiqrFYq11PD8kA.jpeg);background-size: cover;background-repeat: no-repeat;">
+				<h1 class = "text-center" style="color: red;margin-top:15px"> Update......Details </h1>
+				<div class = "card-body">
+					<form th:action="@{/students/{id} (id=${student.id})}" th:object = "${student}" method="POST">
+						<div class ="form-group">
+							<label> Student First Name </label>
+							<input style="color: rgb(2, 64, 157);"
+							type = "text"
+							name = "firstName"
+							th:field = "*{firstName}"
+							class = "form-control"
+							placeholder="Enter Student First Name" required
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Student Last Name </label>
+							<input style="color: rgb(2, 64, 157);"
+							type = "text"
+							name = "lastName"
+							th:field = "*{lastName}"
+							class = "form-control"
+							placeholder="Enter Student Last Name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Student Email </label>
+							<input style="color: rgb(2, 64, 157);"
+							type = "text"
+							name = "email"
+							th:field = "*{email}"
+							class = "form-control"
+							placeholder="Enter Student Email" 
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary" style="margin-left: 420px;margin-top: 30px">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
